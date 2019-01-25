@@ -1,7 +1,7 @@
 if ("serviceWorker" in navigator) {
   window.addEventListener("load", function() {
     navigator.serviceWorker
-      .register("/public/service-worker.js")
+      .register("task-3/service-worker.js")
       .then(
         function(registration) {
           console.log(
