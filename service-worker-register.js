@@ -1,22 +1,8 @@
 if ("serviceWorker" in navigator) {
-  window.addEventListener("load", function() {
+  window.addEventListener("load", () => {
     navigator.serviceWorker
-      .register("task-3/service-worker.js")
-      .then(
-        function(registration) {
-          console.log(
-            "ServiceWorker registration succesful with scope: ",
-            registration.scope
-          );
-        },
-        function(err) {
-          console.log("ServiceWorker registration failed: ", err);
-        }
-      )
-      .catch(function(err) {
-        console.log(err);
-      });
+      .register("./public/service-worker.js")
+      .then(reg => console.log("Sw registered"))
+      .catch(err => console.log(`Sw error: ${err}`));
   });
-} else {
-  console.log("ServiceWorker is not supported");
 }
