@@ -1,6 +1,11 @@
-const cacheName = "v1";
+const cacheName = "v2";
 
-const cacheAssets = ["/**/*.*"];
+const cacheAssets = [
+  "/task-3/asset-manifest.json",
+  "/task-3/precache-manifest.86549d003725db0c0f34828f73815ade.json",
+  "/task-3/service-worker.js",
+  "/task-3/index.html"
+];
 
 self.addEventListener("install", evt => {
   console.log("Service Worker: Installed");
