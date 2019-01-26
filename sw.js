@@ -1,11 +1,6 @@
-const cacheName = "v1";
+const cacheName = "v2";
 
-const cacheAssets = [
-  "./asset-manifest.json",
-  "./precache-manifest.86549d003725db0c0f34828f73815ade.json",
-  "./service-worker.js",
-  "./index.html"
-];
+const cacheAssets = ["/task-3/"];
 
 self.addEventListener("install", evt => {
   console.log("Service Worker: Installed");
@@ -37,5 +32,5 @@ self.addEventListener("activate", evt => {
 
 self.addEventListener("fetch", evt => {
   console.log("Service Worker: Fetching");
-  evt.respondWith(fetch(evt.request)).catch(() => caches.match(evt.request));
+  evt.respondWith(fetch(evt.request).catch(() => caches.match(evt.request)));
 });
