@@ -1,6 +1,6 @@
 const cacheName = "v1";
 
-const cacheAssets = ["/task-3/"];
+const cacheAssets = ["./*"];
 
 self.addEventListener("install", evt => {
   console.log("Service Worker: Installed");
