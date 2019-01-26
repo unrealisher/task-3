@@ -2,7 +2,7 @@ const cacheName = "v1";
 
 const cacheAssets = ["./"];
 
-window.self.addEventListener("install", evt => {
+self.addEventListener("install", evt => {
   console.log("Service Worker: Installed");
   evt.waitUntil(
     caches
@@ -11,11 +11,11 @@ window.self.addEventListener("install", evt => {
         console.log("Service Worker: Caching Files");
         cache.addAll(cacheAssets);
       })
-      .then(() => window.self.skipWaiting())
+      .then(() => self.skipWaiting())
   );
 });
 
-window.self.addEventListener("activate", evt => {
+self.addEventListener("activate", evt => {
   console.log("Service Worker: Activated");
   evt.waitUntil(
     caches.keys().then(cacheNames => {
@@ -30,7 +30,7 @@ window.self.addEventListener("activate", evt => {
   );
 });
 
-window.self.addEventListener("fetch", evt => {
+self.addEventListener("fetch", evt => {
   console.log("Service Worker: Fetching");
   evt.respondWith(fetch(evt.request)).catch(() => caches.match(evt.request));
 });
